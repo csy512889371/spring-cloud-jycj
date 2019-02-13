@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: api-gateway-zuul
+server:
+  port: 5555
+  tomcat:
+    min-spare-threads: 2000
+    max-threads: 5000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+zuul:
+  routes:
+    jycj-uums-auth:
+      path: /uums-auth/**
+      service-id: jycj-uums-auth
+
+log:
+  path: /jycj/logs
+  file: eureka-service-discovery-jycj
+  level: INFO
+
+logging:
+  file: ${log.path}/${log.file}.log

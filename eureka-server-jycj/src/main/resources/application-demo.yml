@@ -30,7 +30,7 @@ eureka:
 
     lease-expiration-duration-in-seconds: 30
     lease-renewal-interval-in-seconds: 10
-    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    instance-id: ${spring.cloud.client.ip_address}:${server.port}
   client:
     #表示是否将自己注册到Eureka Server，默认为true
     register-with-eureka: true

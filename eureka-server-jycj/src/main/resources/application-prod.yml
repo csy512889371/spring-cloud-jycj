@@ -3,10 +3,6 @@ spring:
     name: eureka-service-discovery-jycj
 server:
   port: 1111
-log:
-  path: /jycj/logs
-  file: eureka-service-discovery-jycj
-  level: INFO
 
 eureka:
   server:
@@ -14,7 +10,7 @@ eureka:
     peer-eureka-nodes-update-interval-ms: 60000
     eviction-interval-timer-in-ms: 5000
   instance:
-    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+#    instance-id: ${spring.cloud.client.ip_address}:${server.port}
     prefer-ip-address: true
     lease-expiration-duration-in-seconds: 30
     lease-renewal-interval-in-seconds: 10
@@ -23,5 +19,11 @@ eureka:
       enabled: true
     serviceUrl:
       defaultZone: http://127.0.0.1:1111/eureka/,http://127.0.0.1:1111/eureka/
+
+log:
+  path: /jycj/logs
+  file: eureka-service-discovery-jycj
+  level: INFO
+
 logging:
   file: ${log.path}/${log.file}.log

@@ -7,22 +7,22 @@ import org.springframework.cloud.netflix.eureka.server.event.EurekaInstanceRenew
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by Administrator on 2018/8/20.
- */
+
 @Slf4j
 @Component
 public class EurakeStatusChangeListener {
     @EventListener
     public void onApplicationEvent(EurekaInstanceCanceledEvent eurekaInstanceCanceledEvent) {
-        log.info("服务：{} 挂掉了",eurekaInstanceCanceledEvent.getAppName());
+        log.info("服务：{} 挂掉了", eurekaInstanceCanceledEvent.getAppName());
     }
+
     @EventListener
     public void onApplicationEvent(EurekaInstanceRegisteredEvent eurekaInstanceRegisteredEvent) {
-        log.info("服务：{}， 注册成功了",eurekaInstanceRegisteredEvent.getInstanceInfo().getAppName()+"->节点:"+eurekaInstanceRegisteredEvent.getInstanceInfo().getIPAddr());
+        log.info("服务：{}， 注册成功了", eurekaInstanceRegisteredEvent.getInstanceInfo().getAppName() + "->节点:" + eurekaInstanceRegisteredEvent.getInstanceInfo().getIPAddr());
     }
+
     @EventListener
     public void onApplicationEvent(EurekaInstanceRenewedEvent eurekaInstanceRenewedEvent) {
-        log.info("心跳检测服务：{}",eurekaInstanceRenewedEvent.getAppName());
+        log.info("心跳检测服务：{}", eurekaInstanceRenewedEvent.getAppName());
     }
 }
