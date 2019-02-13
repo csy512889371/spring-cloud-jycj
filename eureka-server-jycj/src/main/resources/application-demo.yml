@@ -2,7 +2,7 @@ spring:
   application:
     name: eureka-server
 server:
-  port: 1111
+  port: 1112
 eureka:
   server:
     #自我保护系数（默认0.85）
@@ -28,9 +28,21 @@ eureka:
     #将IP注册到Eureka Server上，如果不配置就是机器的主机名
     prefer-ip-address: true
 
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     #表示是否将自己注册到Eureka Server，默认为true
-    register-with-eureka: false
+    register-with-eureka: true
 
     #表示是否从Eureka Server获取注册信息，默认为true
-    fetch-registry: false
+    fetch-registry: true
+
+    serviceUrl:
+      defaultZone: http://peer1:1111/eureka/,http://peer2:1112/eureka/
+log:
+  file: eureka-service-discovery-jycj
+  path: D:/jycj
+  level: INFO
+  logging:
+    file: ${log.path}/${log.file}.log
