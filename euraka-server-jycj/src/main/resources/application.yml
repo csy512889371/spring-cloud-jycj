@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 1111
+eureka:
+  server:
+    #自我保护系数（默认0.85）
+    renewal-percent-threshold: 0.49
+
+    #设置 eureka server同步失败的重试次数 默认为 5 次
+    number-of-replication-retries: 5
+
+    #设为false，关闭自我保护
+    enable-self-preservation: false
+
+    #节点之间如何相互发现，各个节点之间定时（时间由更新节点信息，进行相互发现
+    peer-eureka-nodes-update-interval-ms: 6000
+
+    #设置 eureka server同步失败的等待时间 默认 5分
+    #在这期间，它不向客户端提供服务注册信息
+    wait-time-in-ms-when-sync-empty: 5
+
+    # 扫描失效服务的间隔时间（单位毫秒，默认是60*1000）即60秒
+    eviction-interval-timer-in-ms: 5000
+
+  instance:
+    #将IP注册到Eureka Server上，如果不配置就是机器的主机名
+    prefer-ip-address: true
+
+  client:
+    #表示是否将自己注册到Eureka Server，默认为true
+    register-with-eureka: false
+
+    #表示是否从Eureka Server获取注册信息，默认为true
+    fetch-registry: false
