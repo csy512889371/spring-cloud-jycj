@@ -12,7 +12,7 @@ eureka:
     lease-renewal-interval-in-seconds: 10
   client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:1111/eureka/,http://127.0.0.1:2222/eureka/
+      defaultZone: http://192.168.210.209:1111/eureka/,http://192.168.210.175:1111/eureka/
 log:
   path: /jycj/logs
   file: eureka-service-discovery-jycj

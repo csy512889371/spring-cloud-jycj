@@ -11,6 +11,7 @@
     <modules>
         <module>eureka-server-jycj</module>
         <module>api-gateway-zuul</module>
+        <module>eureka-client</module>
     </modules>
 
     <parent>
