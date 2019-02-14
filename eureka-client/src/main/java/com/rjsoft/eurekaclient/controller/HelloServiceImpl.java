@@ -2,11 +2,13 @@ package com.rjsoft.eurekaclient.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
 @Service
-@RestController
+@RestController()
+@RequestMapping("/hello")
 public class HelloServiceImpl implements HelloService {
 
     @Value("${server.port}")

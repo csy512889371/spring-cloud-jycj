@@ -15,7 +15,9 @@ zuul:
     jycj-uums-auth:
       path: /uums-auth/**
       service-id: jycj-uums-auth
-
+    eureka-client:
+      path: /eure-cli/**
+      service-id: eureka-client
 
 log:
   path: /jycj/logs
