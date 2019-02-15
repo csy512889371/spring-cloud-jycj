@@ -19,7 +19,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://192.168.210.209:1111/eureka/,http://192.168.210.175:1111/eureka/
+      defaultZone: http://192.168.111.118:1111/eureka/
 zuul:
   routes:
     jycj-uums-auth:
