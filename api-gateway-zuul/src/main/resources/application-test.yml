@@ -17,6 +17,8 @@ server:
     min-spare-threads: 2000
     max-threads: 5000
 eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
   client:
     service-url:
       defaultZone: http://192.168.111.118:1111/eureka/

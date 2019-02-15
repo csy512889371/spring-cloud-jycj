@@ -10,7 +10,7 @@ eureka:
     peer-eureka-nodes-update-interval-ms: 60000
     eviction-interval-timer-in-ms: 5000
   instance:
-#    instance-id: ${spring.cloud.client.ip_address}:${server.port}
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
     prefer-ip-address: true
     lease-expiration-duration-in-seconds: 30
     lease-renewal-interval-in-seconds: 10
