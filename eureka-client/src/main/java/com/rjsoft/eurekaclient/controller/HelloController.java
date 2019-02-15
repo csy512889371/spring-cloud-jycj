@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Service
 @RestController()
 @RequestMapping("/hello")
-public class HelloServiceImpl implements HelloService {
+public class HelloController implements HelloService {
 
     @Value("${server.port}")
     String port;

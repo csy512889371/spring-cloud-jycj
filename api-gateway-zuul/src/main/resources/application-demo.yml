@@ -1,0 +1,192 @@
+server:
+  tomcat:
+    min-spare-threads: 2000
+    max-threads: 5000
+  port: 5555
+hystrix:
+  threadpool:
+    default:
+      maxQueueSize: -1
+      coreSize: 300
+      maximumSize: 3000
+      allowMaximumSizeToDivergeFromCoreSize: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+          strategy: THREAD
+        timeout:
+          enabled: true
+jycj:
+  logout:
+    log:
+      info: 用户退出：【{0}】、部门【{1}】、人员【{2}】
+log:
+  path: D:/jycj
+  fileName: api-gateway-jycj
+  level: INFO
+
+eureka:
+  client:
+    fetch-registry: true
+    registry-fetch-interval-seconds: 30
+zuul:
+  retryable: true
+  routes:
+    jycj-xfgl-main190:
+      path: /190/**
+      serviceId: jycj-xfgl-main190
+    jycj-uums-auth1: /uaa1/**
+  addHostHeader: false
+  max:
+    host:
+      connections: 5000
+  host:
+    maxPreRouteConnections: 100
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 30000
+  ribbonIsolationStrategy: THREAD
+jetcache:
+  areaInCacheName: false
+  statIntervalMinutes: 1
+  remote:
+    default:
+      uri[0]: redis://205.3.6.206:6379
+      uri[2]: redis://205.3.6.208:6379
+      uri[1]: redis://205.3.6.207:6379
+      uri[4]: redis://205.3.6.210:6379
+      valueEncoder: java
+      uri[3]: redis://205.3.6.209:6379
+      valueDecoder: java
+      uri[5]: redis://205.3.6.211:6379
+      poolConfig:
+        minIdle: 5
+        maxIdle: 20
+        maxTotal: 50
+      type: redis.lettuce
+      keyConvertor: fastjson
+  local:
+    default:
+      limit: 200
+      expireAfterWriteInMillis: 100000
+      type: linkedhashmap
+      keyConvertor: fastjson
+spring:
+  cloud:
+    stream:
+      bindings:
+        log-exchange-output:
+          destination: log-exchange
+          content-type: application/json
+  application:
+    name: api-gateway-jycj
+security:
+  oauth2:
+    resource:
+      filter-order: 3
+simba:
+  auth:
+    clientId: fjfy
+    scope: all
+    clientSecret: secret
+
+degradeService: simba-uums-main-v11
+ipBlack: 192.168.1.221
+logging:
+  file: ${log.path}/${log.fileName}.log
+  level:
+    org:
+      springframework:
+        security: INFO
+  config: classpath:logback-custom.xml
+zuulFallbackService: simba-uums-main-v11,jycj-SPLC-MAIN223
+apiWhite: /uaa/user/accessToken,/uaa1/user/accessToken,/uaa/user/refreshToken,/uaa/info,/uaa/health,/jycj-editor/ntko/*,/jycj-ftc-main/ftc/api/*,/jycj-editor-wangtianfei/ntko/*,/jycj-editor-caiyuekai/ntko/*,/gxjh/*,/websocket/*,/jycj-splc-main/splc/getSystemName,/simba-uums-main-v1/v1/*
+
+
+
+---
+simba-openMind:
+  ribbon:
+    ConnectTimeout: 3000
+    MaxHttpConnectionsPreHost: 1000
+    MaxAutoRetries: 1
+    MaxTotalHttpConnections: 2000
+    okhttp:
+      enabled: true
+    MaxAutoRetriesNextServer: 2
+    ReadTimeout: 5000
+    OkToRetryOnAllOperations: false
+    httpclient:
+      enabled: false
+simba-jycjSharing:
+  ribbon:
+    ConnectTimeout: 3000
+    MaxHttpConnectionsPreHost: 1000
+    MaxAutoRetries: 1
+    MaxTotalHttpConnections: 2000
+    okhttp:
+      enabled: true
+    MaxAutoRetriesNextServer: 2
+    ReadTimeout: 5000
+    OkToRetryOnAllOperations: false
+    httpclient:
+      enabled: false
+simba-uums-auth:
+  ribbon:
+    ConnectTimeout: 3000
+    MaxHttpConnectionsPreHost: 1000
+    MaxAutoRetries: 1
+    MaxTotalHttpConnections: 2000
+    okhttp:
+      enabled: true
+    MaxAutoRetriesNextServer: 2
+    ReadTimeout: 5000
+    OkToRetryOnAllOperations: false
+    httpclient:
+      enabled: false
+ribbon:
+  ConnectTimeout: 15000
+  MaxConnectionsPreHost: 1000
+  MaxAutoRetries: 0
+  okhttp:
+    enabled: true
+  MaxTotalHttpConnections: 2000
+  MaxAutoRetriesNextServer: 2
+  ReadTimeout: 15000
+  OkToRetryOnAllOperations: true
+  httpclient:
+    enabled: false
+simba-messageCenter:
+  ribbon:
+    ConnectTimeout: 3000
+    MaxHttpConnectionsPreHost: 1000
+    MaxAutoRetries: 1
+    okhttp:
+      enabled: true
+    MaxTotalHttpConnections: 2000
+    MaxAutoRetriesNextServer: 2
+    ReadTimeout: 5000
+    OkToRetryOnAllOperations: false
+    httpclient:
+      enabled: false
+simba-uums-main:
+  ribbon:
+    ConnectTimeout: 3000
+    MaxHttpConnectionsPreHost: 1000
+    MaxAutoRetries: 1
+    okhttp:
+      enabled: true
+    MaxTotalHttpConnections: 2000
+    MaxAutoRetriesNextServer: 2
+    OkToRetryOnAllOperations: false
+    ReadTimeout: 5000
+    httpclient:
+      enabled: false
+
+
+
+
+
+
