@@ -21,7 +21,7 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
   client:
     service-url:
-      defaultZone: http://192.168.111.118:1111/eureka/,http://192.168.210.209:1111/eureka/
+      defaultZone: http://192.168.111.252:1111/eureka/
 zuul:
   routes:
     jycj-uums-auth:

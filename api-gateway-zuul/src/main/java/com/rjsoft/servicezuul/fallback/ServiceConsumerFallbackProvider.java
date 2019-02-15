@@ -24,7 +24,7 @@ import java.util.Objects;
 /**
  * Zuul回退机制
  */
-//@Component
+@Component
 @Slf4j
 public class ServiceConsumerFallbackProvider implements FallbackProvider {
 
