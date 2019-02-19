@@ -41,3 +41,12 @@ logging:
   file: ${log.path}/${log.file}.log
 
 
+#ip 黑名单用,隔开
+ipBlack: _
+
+#降级的服务,隔开
+degradeService: eureka-client-local-v1
+
+#api 白名单,隔开
+apiWhite: /uaa/user/accessToken,/uaa1/user/accessToken,/uaa/user/refreshToken
+

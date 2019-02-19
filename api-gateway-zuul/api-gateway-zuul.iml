@@ -176,5 +176,6 @@
     <orderEntry type="library" name="Maven: io.zipkin.reporter2:zipkin-reporter:2.7.14" level="project" />
     <orderEntry type="library" name="Maven: io.zipkin.reporter2:zipkin-sender-kafka11:2.7.14" level="project" />
     <orderEntry type="library" name="Maven: io.zipkin.reporter2:zipkin-sender-amqp-client:2.7.14" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.12" level="project" />
   </component>
 </module>
