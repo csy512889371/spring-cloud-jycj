@@ -13,6 +13,7 @@
         <module>api-gateway-zuul</module>
         <module>eureka-client</module>
         <module>turbine-jycj</module>
+        <module>dashboard-jycj</module>
     </modules>
 
     <parent>

@@ -22,9 +22,12 @@ eureka:
   instance:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
     prefer-ip-address: true
+#    metadata-map:
+#      cluster: prod
   client:
     service-url:
       defaultZone: http://192.168.111.118:1111/eureka/
+
 
 zuul:
   routes:
@@ -36,7 +39,7 @@ zuul:
       service-id: eureka-client-local
 
 log:
-  path: /jycj/logs
+  path: D:/jycj/logs
   file: eureka-service-discovery-jycj
   level: INFO
 
@@ -52,4 +55,11 @@ degradeService: eureka-client-local-v1
 
 #api 白名单,隔开
 apiWhite: /uaa/user/accessToken,/uaa1/user/accessToken,/uaa/user/refreshToken
+
+#默认值为health,info
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream,health,info
 

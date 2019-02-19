@@ -14,7 +14,7 @@ eureka:
     serviceUrl:
       defaultZone: http://192.168.111.118:1111/eureka/
 log:
-  path: /jycj/logs
+  path: D:/jycj/logs
   file: eureka-service-discovery-jycj
   level: INFO
 

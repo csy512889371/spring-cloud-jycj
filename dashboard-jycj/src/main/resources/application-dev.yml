@@ -1,8 +1,8 @@
 spring:
   application:
-    name: eureka-service-discovery-jycj
+    name: dashboard-jycj
 server:
-  port: 1111
+  port: 2001
 
 eureka:
   instance:
@@ -16,7 +16,7 @@ eureka:
 
 log:
   path: D:/jycj/logs
-  file: eureka-service-discovery-jycj
+  file: dashboard-jycj
   level: INFO
 
 logging:
