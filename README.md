@@ -4,9 +4,9 @@
 
 3、API-GATEWAY-ZUUL 
 http://192.168.111.118:5555
-http://localhost:5555/eure-cli/hello/sayHello?name=hhh
-http://localhost:5555/actuator/hystrix.stream
-http://localhost:5555/consumer
+http://192.168.111.118:5555/eure-cli/hello/sayHello?name=hhh
+http://192.168.111.118:5555/actuator/hystrix.stream
+http://192.168.111.118:5555/consumer
 
 4、DASHBOARD-JYCJ http://192.168.111.118:2001/hystrix
 5、TURBINE-JYCJ http://192.168.111.118:8989/turbine.stream
