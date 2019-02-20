@@ -15,6 +15,12 @@ public class HelloController implements HelloService {
     String port;
 
     public String sayHello(String name) {
+        System.out.println("request is coming...");
+        try {
+            Thread.sleep(100000);
+        } catch (InterruptedException e) {
+            System.out.println("线程被打断... " + e.getMessage());
+        }
         return "hello " + name + " ,i am form port:" + port;
     }
 

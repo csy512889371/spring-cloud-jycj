@@ -4,6 +4,7 @@ spring:
 server:
   port: 2001
 
+#eureka common
 eureka:
   instance:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}

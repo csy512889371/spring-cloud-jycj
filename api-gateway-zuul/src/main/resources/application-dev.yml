@@ -17,17 +17,17 @@ server:
   tomcat:
     min-spare-threads: 2000
     max-threads: 5000
-eureka:
 
+#eureka common
+eureka:
   instance:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
     prefer-ip-address: true
-#    metadata-map:
-#      cluster: prod
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
   client:
-    service-url:
+    serviceUrl:
       defaultZone: http://192.168.111.118:1111/eureka/
-
 
 zuul:
   routes:
@@ -38,6 +38,48 @@ zuul:
       path: /eure-cli/**
       service-id: eureka-client-local
 
+  #是否开启重试功能默认为false
+  retryable: true
+  addHostHeader: false
+  max:
+    host:
+      connections: 5000
+  host:
+    maxPreRouteConnections: 100
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 30000
+  ribbonIsolationStrategy: THREAD
+
+# 重试
+ribbon:
+  MaxAutoRetries: 3
+  MaxAutoRetriesNextServer: 0
+
+# 开启Hystrix
+#feign:
+#  hystrix:
+#    enabled: true
+
+# hystrix
+#hystrix:
+#  threadpool:
+#    default:
+#      maxQueueSize: -1
+#      coreSize: 300
+#      maximumSize: 3000
+#      allowMaximumSizeToDivergeFromCoreSize: true
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 60000
+#          strategy: THREAD
+#        timeout:
+#          enabled: true
+
+
+# log
 log:
   path: D:/jycj/logs
   file: eureka-service-discovery-jycj
@@ -45,7 +87,6 @@ log:
 
 logging:
   file: ${log.path}/${log.file}.log
-
 
 #ip 黑名单用,隔开
 ipBlack: _
@@ -56,7 +97,7 @@ degradeService: eureka-client-local-v1
 #api 白名单,隔开
 apiWhite: /uaa/user/accessToken,/uaa1/user/accessToken,/uaa/user/refreshToken
 
-#默认值为health,info
+#端点 默认值为health,info
 management:
   endpoints:
     web:

@@ -4,11 +4,15 @@ spring:
 
 server:
   port: 8001
+
+#eureka common
 eureka:
   instance:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
     prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
   client:
-    service-url:
+    serviceUrl:
       defaultZone: http://192.168.111.118:1111/eureka/
 
