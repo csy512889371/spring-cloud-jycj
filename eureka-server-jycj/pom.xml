@@ -10,8 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
 
-    <artifactId>euraka-server-jycj</artifactId>
-    <name>euraka-server-jycj 注册中心</name>
+    <artifactId>eureka-server-jycj</artifactId>
+    <name>eureka-server-jycj 注册中心</name>
 
     <dependencies>
 

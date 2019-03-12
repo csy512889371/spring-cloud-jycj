@@ -2,4 +2,4 @@
 
 */target/
 log.path_IS_UNDEFINED/
-.iml
+*.iml
