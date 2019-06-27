@@ -2,7 +2,7 @@ spring:
   application:
     name: eureka-service-discovery-jycj
 server:
-  port: 1111
+  port: 9068
 
 #eureka common
 eureka:
@@ -16,9 +16,9 @@ eureka:
     lease-renewal-interval-in-seconds: 10
   client:
     serviceUrl:
-      defaultZone: http://192.168.111.121:1111/eureka/
+      defaultZone: http://192.168.111.122:9068/eureka/
 log:
-  path: D:/jycj/logs
+  path: D:/btc/logs
   file: eureka-service-discovery-jycj
   level: INFO
 
