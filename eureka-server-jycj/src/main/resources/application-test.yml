@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: eureka-service-discovery-jycj
+server:
+  port: 1112
+
+#eureka common
+eureka:
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 60000
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.111.121:1112/eureka/
+log:
+  path: D:/jycj/test/logs
+  file: eureka-service-discovery-jycj
+  level: INFO
+
+logging:
+  file: ${log.path}/${log.file}.log

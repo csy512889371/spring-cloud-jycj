@@ -1,0 +1,39 @@
+server:
+  port: 8099
+spring:
+  profiles:
+    active: dev
+  application:
+    name: SpringBootAdmin
+  security:
+    user:
+      name: admin
+      password: 123456
+  boot:
+    admin:
+      ui:
+        title: rjsoft-jycj-spring-admin
+
+eureka:
+  instance:
+    metadata-map:
+      user.name: admin
+      user.password: 123456
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
+    health-check-url-path: /actuator/health
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://192.168.111.121:1111/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

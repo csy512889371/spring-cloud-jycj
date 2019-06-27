@@ -6,6 +6,9 @@ server:
 
 #eureka common
 eureka:
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 60000
   instance:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
     prefer-ip-address: true
@@ -13,7 +16,7 @@ eureka:
     lease-renewal-interval-in-seconds: 10
   client:
     serviceUrl:
-      defaultZone: http://192.168.111.118:1111/eureka/
+      defaultZone: http://192.168.111.121:1111/eureka/
 log:
   path: D:/jycj/logs
   file: eureka-service-discovery-jycj

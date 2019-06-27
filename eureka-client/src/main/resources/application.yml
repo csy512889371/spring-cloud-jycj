@@ -14,5 +14,20 @@ eureka:
     lease-renewal-interval-in-seconds: 10
   client:
     serviceUrl:
-      defaultZone: http://192.168.111.118:1111/eureka/
+      defaultZone: http://192.168.111.121:1111/eureka/
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+      health:
+        show-details: ALWAYS
+
+#端点 默认值为health,info
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: hystrix.stream,health,info

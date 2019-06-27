@@ -14,6 +14,7 @@
         <module>eureka-client</module>
         <module>turbine-jycj</module>
         <module>dashboard-jycj</module>
+        <module>spring-boot-admin</module>
     </modules>
 
     <parent>

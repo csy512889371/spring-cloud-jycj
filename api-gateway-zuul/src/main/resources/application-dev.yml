@@ -10,7 +10,7 @@ spring:
     sampler:
       probability: 1.0 # 将采样比例设置为 1.0，也就是全部都需要。默认是 0.1
   zipkin:
-    base-url: http://192.168.111.118:9411/ # 指定了 Zipkin 服务器的地址
+    base-url: http://192.168.111.121:9411/ # 指定了 Zipkin 服务器的地址
 
 server:
   port: 5555
@@ -27,7 +27,7 @@ eureka:
     lease-renewal-interval-in-seconds: 10
   client:
     serviceUrl:
-      defaultZone: http://192.168.111.118:1111/eureka/
+      defaultZone: http://192.168.111.121:1111/eureka/
 
 zuul:
   routes:
@@ -96,11 +96,4 @@ degradeService: eureka-client-local-v1
 
 #api 白名单,隔开
 apiWhite: /uaa/user/accessToken,/uaa1/user/accessToken,/uaa/user/refreshToken
-
-#端点 默认值为health,info
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream,health,info
 
